@@ -19,5 +19,6 @@ server.get('/recipes',recipes.selectAll);
 server.get('/recipes/:id', recipes.select);
 server.put('/recipes/:id', recipes.update);
 server.post('/recipes', recipes.insert);
+server.del('recipes/:id', recipes.delete);
 
 // Exports

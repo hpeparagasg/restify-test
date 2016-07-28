@@ -20,7 +20,10 @@ recipes.selectAll = function (req, res, next){
 recipes.select = function (req, res, next){
   db.collection('recipes').findOne({_id: mongojs.ObjectId(req.params.id)},function(err,recipe){
     if (err){
-      throw err;
+      res.send(404, 'no data found');
+    }
+    if (!recipe) {
+      res.send(404, 'no data found');
     }
     res.send(recipe);
   });
@@ -37,6 +40,9 @@ recipes.update = function (req, res, next){
     if (err){
       throw err;
     }
+    if (!recipe) {
+      res.send(404, 'no data found');
+    }
     res.send(recipe);
   });
 
@@ -49,5 +55,14 @@ recipes.insert = function (req, res, next){
   return next();
 }
 
+recipes.delete = function (req, res, next) {
+  db.collection('recipes').remove({_id: mongojs.ObjectId(req.params.id)}, function(err, result){
+    if (err) {
+      throw err
+    }
+    res.send(204, 'Delete successful');
+    return next();
+  });
+}
 
 module.exports = recipes;

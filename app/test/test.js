@@ -19,5 +19,5 @@ describe('adds new recipe',function(){
             expect(response.statusCode).to.equal(201);
           });
     done();
-  })
-})
+  });
+});
