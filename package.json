@@ -1,0 +1,23 @@
+{
+  "name": "recipes-restify",
+  "version": "1.0.0",
+  "description": "APIs for a recipe database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrielldagasuan/restify-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrielldagasuan/restify-test/issues"
+  },
+  "homepage": "https://github.com/adrielldagasuan/restify-test#readme",
+  "dependencies": {
+    "mongojs": "^2.4.0",
+    "restify": "^4.1.1"
+  }
+}
