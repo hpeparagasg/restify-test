@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - npm install
+
+test:
+  override:
+    - cd app && npm test
