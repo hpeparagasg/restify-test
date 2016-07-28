@@ -4,8 +4,9 @@ machine:
 
 dependencies:
   override:
-    - npm install
+    - cd app && npm install
 
 test:
   override:
+    - docker-compose up
     - cd app && npm test
