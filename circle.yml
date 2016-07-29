@@ -4,13 +4,11 @@ machine:
 
 dependencies:
   override:
-    - cd app && npm install
+    - docker build --no-cache -t adrielldagasuan/restify-test
 
 test:
   override:
-    - docker-compose build
-    - docker-compose up
-    - cd app && npm test
+    - npm test
 
 deployment:
   hub:

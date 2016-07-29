@@ -1,9 +1,9 @@
 version: '2'
 services:
   web:
-    build: app
+    build: .
     image: adrielldagasuan/restify-test
     ports:
       - "3000:3000"
     volumes:
-      - ./app/:/usr/src/app/
+      - .:/usr/src/app/
