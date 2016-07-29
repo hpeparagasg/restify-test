@@ -1,7 +1,7 @@
 var should = require('should');
 var expect = require('chai').expect;
 var request = require('request');
-var baseUrl = 'http://0.0.0.0:3000/';
+var baseUrl = 'http://localhost:3000/';
 
 describe('returns recipes', function(){
   it('returns recipes', function(done) {
