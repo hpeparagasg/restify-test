@@ -5,16 +5,16 @@
   tasks:
   - name: Provision EC2 Server
 	ec2:
-	aws_access_key: "{{lookup('env','ACCESS_ID')}}"
-	aws_secret_key: "{{lookup('env','ACCESS_KEY')}}"
-	region: ap_northeast-1
-	image: ami-a21529cc
-	instance_type: t2.micro
-	key_name: ansible-key-pair
-	count: 1
-	wait: no
-	instance_tags:
-	- restify
+	  aws_access_key: "{{lookup('env','ACCESS_ID')}}"
+	  aws_secret_key: "{{lookup('env','ACCESS_KEY')}}"
+	  region: ap_northeast-1
+	  image: ami-a21529cc
+	  instance_type: t2.micro
+	  key_name: ansible-key-pair
+	  count: 1
+	  wait: no
+	  instance_tags:
+	    name: restify
 	register: ec2info
   - name: Print the results
 	debug: var=ec2info
