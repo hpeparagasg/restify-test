@@ -21,11 +21,12 @@ deployment:
     branch: staging
     commands:
       # push to docker hub
+      - echo "Pushing Docker image to Docker Hub"
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push adrielldagasuan/restify-test
       # provision EC2 instance
       - echo "Provisioning EC2 Instance"
-      - ansible-playbook ec2-provision-staging.yml
+      - ansible-playbook i- deploy/hosts deploy/ec2-provision-staging.yml
       # deploy tester-app
   production:
     branch: master
