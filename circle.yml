@@ -10,12 +10,17 @@ dependencies:
   override:
     - docker build --no-cache -t adrielldagasuan/restify-test .
     - npm install
+
 test:
   override:
-    # run test scripts
+    # run test scripts for unit/integration/functional
     - npm test
 
 deployment:
+  integration:
+    branch: integration
+    commands:
+      # integration deployment commands
   staging:
     branch: staging
     commands:
@@ -25,6 +30,7 @@ deployment:
       # provision EC2 instance
       - echo "Provisioning EC2 Instance"
       - ansible-playbook ec2-provision-staging.yml
+      # deploy tester-app
   production:
     branch: master
     commands:
