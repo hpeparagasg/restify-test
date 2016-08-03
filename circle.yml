@@ -17,10 +17,6 @@ test:
     - npm test
 
 deployment:
-  integration:
-    branch: integration
-    commands:
-      # integration deployment commands
   staging:
     branch: staging
     commands:
