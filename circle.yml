@@ -4,8 +4,10 @@ machine:
     - docker
 
 dependencies:
-  override:
+  pre:
     - pip install ansible
+    - pip install --upgrade setuptools
+  override:
     - docker build --no-cache -t adrielldagasuan/restify-test .
     - npm install
 test:
