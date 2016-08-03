@@ -12,9 +12,10 @@
       instance_type: t2.micro
       key_name: ansible-key-pair
       count: 1
+      state: present
       wait: no
       instance_tags:
-      name: restify
-  register: ec2info
-- name: Print the results
-  debug: var=ec2info
+        name: restify
+    register: ec2info
+  - name: Print the results
+    debug: var=ec2info
