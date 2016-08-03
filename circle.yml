@@ -1,18 +1,26 @@
 machine:
   services:
-    - docker
+    - docker #machine for the application
+    - python
 
 dependencies:
   override:
+    - pip install ansible
     - docker build --no-cache -t adrielldagasuan/restify-test .
     - npm install
 test:
   override:
+    # run test scripts
     - npm test
 
 deployment:
-  hub:
+  staging:
+    branch: staging
+    commands:
+      # push to docker hub
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push adrielldagasuan/restify-test
+  production:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push adrielldagasuan/restify-test
