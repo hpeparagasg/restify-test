@@ -5,24 +5,10 @@ machine:
     - docker
 
 dependencies:
-  pre:
-    - pip install ansible
   override:
-    - docker build --no-cache -t adrielldagasuan/restify-test .
+    - docker build --no-cache -t hpeparagasg/restify-test .
     - npm install
 test:
   override:
     # run test scripts
     - npm test
-
-deployment:
-  staging:
-    branch: staging
-    commands:
-      # push to docker hub
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push adrielldagasuan/restify-test
-  production:
-    branch: master
-    commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
