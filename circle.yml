@@ -9,7 +9,7 @@ dependencies:
     - pip install ansible
     - pip install boto
     - cd /etc
-    - mkdir ansible
+    - sudo mkdir ansible
     - cp ~/restify-test/deploy/hosts/ec2.ini /etc/ansible/
   override:
     - docker build --no-cache -t adrielldagasuan/restify-test .
